@@ -1,0 +1,220 @@
+/* Elimino los margenes que vienen por defecto y que las imagenes no se salgan de los contenedores */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  height: 100%;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Defino los colores, tamaños y tipografía como variables, así es más ordenado y editable */
+:root {
+  /* Variables más básicas */
+  --color-bg: #f5f5f5;
+  --color-card: #ffffff;
+  --color-primary: #0b6efd;
+  --color-accent: #ff5757;
+  --text: #222;
+  --muted: #666;
+  --container: 1100px;
+  --radius: 10px;
+  --gap: 1rem;
+  --font-system: Arial, Helvetica, sans-serif;
+}
+
+/* Base, Aplica la fuente general, color del texto, fondo y crea margenes para el contenido */
+body {
+  font-family: var(--font-system);
+  color: var(--text);
+  background: var(--color-bg);
+  line-height: 1.5;
+}
+.container {
+  width: 90%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Header, Alineo el logo y el menú y creo estilos para el header */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap);
+}
+.logo a {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+.logo span {
+  color: var(--color-accent);
+}
+
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.site-nav a {
+  color: var(--text);
+  text-decoration: none;
+  padding: .5rem .75rem;
+  border-radius: 6px;
+}
+.site-nav a:hover {
+  background: #e7e7e7;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  font-size: 1.25rem;
+}
+
+/* Hero, sección de bienvenida, defino los estilos de botones y elementos */
+.hero {
+  padding: 3rem 0;
+  background: #ffffff;
+}
+.hero-content {
+  max-width: 700px;
+}
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: .5rem;
+}
+.lead {
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.btn {
+  display: inline-block;
+  padding: .6rem 1rem;
+  border-radius: 8px;
+  background: var(--color-primary);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Sobre mí, Creo una cuadrícula para que foto y texto aparezcan lado a lado */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+.about img {
+  border-radius: var(--radius);
+}
+
+/* Portfolio grid, Creo una rejilla de 4 columnas y le pongo estilos */
+.portfolio .grid-projects {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.project-card {
+  background: var(--color-card);
+  padding: 1rem;
+  border-radius: var(--radius);
+  border: 1px solid #e6e6e6; /* sombra simple menos cantosa */
+}
+.project-card h3 {
+  margin: .5rem 0;
+}
+.project-card p {
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+/* Formulario, Mantengo el formulario ordenado */
+.contact-form {
+  display: grid;
+  gap: .75rem;
+  max-width: 600px;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: .6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+.contact-form label {
+  font-size: .9rem;
+  color: var(--muted);
+}
+
+/* Footer */
+.site-footer {
+  padding: 1.25rem 0;
+  background: #fff;
+  border-top: 1px solid #ddd;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.social {
+  list-style: none;
+  display: flex;
+  gap: .5rem;
+}
+.social a {
+  text-decoration: none;
+  color: var(--muted);
+}
+
+/* Diseño responsive, Cambio la galeria de 4 a 2 columnas a 1 sola, menú es móvil y lo ajusto para móviles */
+@media (max-width: 900px) {
+  .portfolio .grid-projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-nav ul {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    right: 1rem;
+    top: 60px;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  .site-nav ul.open {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .portfolio .grid-projects {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Small utilities */
+h2 {
+  margin-bottom: .75rem;
+}

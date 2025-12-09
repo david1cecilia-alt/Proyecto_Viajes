@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Viajes y aventuras — Portafolio sencillo con destinos, información y contacto." />
+  <meta name="author" content="David Cecilia" />
+  <meta name="keywords" content="viajes, destinos, turismo, rutas" />
+
+  <title>Rutas & Ruedas — Portafolio de Viajes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <a href="#home">Rutas <span>&</span> Ruedas</a>
+      </div>
+
+      <nav class="site-nav" aria-label="Menú principal">
+        <ul>
+          <li><a href="#home">Inicio</a></li>
+          <li><a href="#sobre">Sobre mí</a></li>
+          <li><a href="#portfolio">Destinos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <!-- Botón menú móvil -->
+      <button class="menu-toggle" aria-controls="site-nav" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero / Portada -->
+    <section id="home" class="hero">
+      <div class="container hero-content">
+        <h1>Explora el mundo, una ruta a la vez</h1>
+        <p>Blog y portafolio de viajes con rutas, fotos y proyectos pensados para inspirarte.</p>
+        <a class="btn" href="#portfolio">Ver destinos</a>
+      </div>
+    </section>
+
+    <!-- Sobre mí -->
+    <section id="sobre" class="about container">
+      <h2>Sobre mí</h2>
+      <div class="about-grid">
+        <img src="img/Sobre_Mi.webp" alt="Fotografía de perfil viajero" />
+
+        <div>
+          <p>Hola - Soy <strong>David Cecilia</strong>, los viajes y la fotografía son algo muy importante en mi vida. Voy a proponer una serie de rutas, guías y artículos que he creado durante mis aventuras.</p>
+          <p>Me he centrado en rutas económicas, fotografía de paisaje y planificación de escapadas de fin de semana.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portafolio / Galería -->
+    <section id="portfolio" class="portfolio container">
+      <h2>Destinos destacados</h2>
+      <p class="lead">Cada tarjeta representa un destino que he visitado o planificado.</p>
+
+      <div class="grid-projects">
+
+        <article class="project-card">
+          <img src="img/Islas_Azules.webp" alt="Playa tropical en Islas Azules" />
+          <h3>Islas Azules</h3>
+          <p>Semana de snorkeling y relax en playas de arena blanca. Presupuesto medio.</p>
+        </article>
+
+        <article class="project-card">
+          <img src="img/Sendero_Montañas.jpg" alt="Sendero de montaña" />
+          <h3>Ruta Montaña Verde</h3>
+          <p>Trekking de 4 días por bosques y lagunas, ideal para fotografía de paisaje.</p>
+        </article>
+
+        <article class="project-card">
+          <img src="img/Plaza_En_Ciudad_Vibrante.jpg" alt="Plaza en ciudad vibrante" />
+          <h3>Ciudad Viva</h3>
+          <p>Escapada urbana: gastronomía, museos y vida nocturna en un fin de semana.</p>
+        </article>
+
+        <article class="project-card">
+          <img src="img/Desierto.jpg" alt="Paisaje desértico" />
+          <h3>Desierto Lunar</h3>
+          <p>Aventura todoterreno y acampada bajo las estrellas, ideal para los más aventureros.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contact container">
+      <h2>Contacto</h2>
+      <p>Si quieres consultarme sobre un proyecto o preguntar algo, escríbeme.</p>
+
+      <form class="contact-form" action="#" method="post" novalidate>
+        <label for="name">Nombre</label>
+        <input id="name" name="name" type="text" required />
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required />
+
+        <label for="message">Mensaje</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit" class="btn">Enviar mensaje</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="año"></span> Rutas & Ruedas — Todos los derechos reservados.</p>
+      <ul class="social">
+        <li><a href="#" aria-label="Instagram">Instagram</a></li>
+        <li><a href="#" aria-label="Twitter">Twitter</a></li>
+        <li><a href="#" aria-label="LinkedIn">LinkedIn</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // Pequeño script para poner el año actual
+    document.getElementById('año').textContent = new Date().getFullYear();
+
+    // Toggle del menú móvil
+    const btn = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.site-nav ul');
+
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>
